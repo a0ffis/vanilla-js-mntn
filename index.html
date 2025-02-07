@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link href="./assets/css/style.css" rel="stylesheet" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="absolute w-full h-full">
+      <div class="relative min-h-screen w-full">
+        <img
+          class="absolute top-0 z-1"
+          src="./assets/images/BG Hero.png"
+          alt="Hero"
+        />
+        <img class="absolute top-0 z-0" src="./assets/images/HG.png" alt="HG" />
+        <img
+          class="absolute bottom-[11rem] xl:-bottom-[30rem] z-0"
+          src="./assets/images/MG.png"
+          alt="MG"
+        />
+        <img
+          class="absolute bottom-[8rem] xl:-bottom-[20rem] z-0"
+          src="./assets/images/VG.png"
+          alt="VG"
+        />
+        <img
+          class="absolute bottom-0 xl:-bottom-[30rem] z-1"
+          src="./assets/images/BG Content.png"
+          alt="Content"
+        />
+      </div>
+    </div>
+    <header class="py-8 w-full backdrop-blur-xs px-8 xl:px-0 drop-shadow-sm">
+      <div class="container mx-auto flex justify-between items-center">
+        <div id="" class="alice text-3xl">
+          <a href="#start"> MNTN </a>
+        </div>
+        <div id="" class="font-normal">
+          <div class="flex gap-10 justify-center items-center">
+            <a href="#equipment">Equipment</a>
+            <a href="#about-us">About us</a>
+            <a href="#blog">Blog</a>
+          </div>
+        </div>
+        <div id="" class="font-normal cursor-pointer">@ Account</div>
+      </div>
+    </header>
+    <sidebar
+      class="fixed top-[16rem] right-[5rem] w-full z-[20] drop-shadow-sm"
+    >
+      <div class="flex flex-col items-end w-full relative">
+        <a
+          href="#start"
+          class="font-bold drop-shadow-sm pr-8 py-4 border-r-3 border-[#FFFFFF80] cursor-pointer w-24 text-right backdrop-blur-xs hover:text-[var(--color-gold-1)] hover:w-48 transition-all ease-in-out duration-300"
+        >
+          Start
+        </a>
+        <a
+          href="#01"
+          class="font-bold drop-shadow-sm pr-8 py-4 border-r-3 border-[#FFFFFF80] cursor-pointer w-24 text-right backdrop-blur-xs hover:text-[var(--color-gold-1)] hover:w-48 transition-all ease-in-out duration-300"
+        >
+          01
+        </a>
+        <a
+          href="#02"
+          class="font-bold drop-shadow-sm pr-8 py-4 border-r-3 border-[#FFFFFF80] cursor-pointer w-24 text-right backdrop-blur-xs hover:text-[var(--color-gold-1)] hover:w-48 transition-all ease-in-out duration-300"
+        >
+          02
+        </a>
+        <a
+          href="#03"
+          class="font-bold drop-shadow-sm pr-8 py-4 border-r-3 border-[#FFFFFF80] cursor-pointer w-24 text-right backdrop-blur-xs hover:text-[var(--color-gold-1)] hover:w-48 transition-all ease-in-out duration-300"
+        >
+          03
+        </a>
+
+        <div class="tab" style="--i: 0; top: calc(var(--i) * 56px)"></div>
+      </div>
+    </sidebar>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll("section");
+        const sidebarLinks = document.querySelectorAll("sidebar a");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                let activeSection = entry.target.id;
+
+                history.replaceState(null, null, `#${activeSection}`);
+
+                sidebarLinks.forEach((link) => link.classList.remove("active"));
+                let activeLink = document.querySelector(
+                  `sidebar a[href="#${activeSection}"]`,
+                );
+                if (activeLink) {
+                  activeLink.classList.add("active");
+                  document
+                    .querySelector("sidebar .tab")
+                    .style.setProperty(
+                      "--i",
+                      Array.from(sidebarLinks).indexOf(activeLink),
+                    );
+                }
+              }
+            });
+          },
+          {
+            root: null,
+            threshold: 0.5,
+          },
+        );
+
+        sections.forEach((section) => observer.observe(section));
+      });
+    </script>
+
+    <div id="section-wrapper" class="==pt-[17rem]">
+      <section
+        id="start"
+        class="container mx-auto pt-[17rem] min-h-screen drop-shadow-sm"
+      >
+        <div class="grid grid-cols-12 items-center">
+          <div class="col-span-3"></div>
+          <div class="col-span-6 flex flex-col gap-8">
+            <div
+              class="font-bold tracking-widest text-[var(--color-gold-1)] flex gap-4 items-center"
+            >
+              <img
+                class="h-[0.2rem] w-[5rem]"
+                src="./assets/images/Rectangle 2.1.png"
+                alt="reactangle_icon"
+              />
+              <p>A Hiking guide</p>
+            </div>
+            <div class="text-6xl alice drop-shadow-sm">
+              <h1>Be prepared for the</h1>
+              <h1>Mountains and beyond!</h1>
+            </div>
+            <div>
+              <a href="#01" class="cursor-pointer w-fit flex items-center gap-4"
+                >scroll down
+                <img
+                  class="animate-arrow-down"
+                  src="./assets/images/arrow_down.svg"
+                  alt="arrow_down"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="01" class="container mx-auto pt-[17rem]">
+        <div class="wrapper px-8 lg:px-24 grid grid-cols-3 items-center">
+          <div class="px-8 lg:px-24 col-span-2 flex flex-col gap-6 relative">
+            <div
+              class="absolute -top-[10rem] -left-[3rem] text-[15rem] text-[#FFFFFF1A] font-bold"
+            >
+              01
+            </div>
+            <div
+              class="font-bold tracking-widest text-[var(--color-gold-1)] flex gap-4 items-center"
+            >
+              <img
+                class="h-[0.2rem] w-[5rem]"
+                src="./assets/images/Rectangle 2.1.png"
+                alt="reactangle_icon"
+              />
+              <p>GET STARTED</p>
+            </div>
+            <div class="alice">
+              <h1 class="text-6xl">What level of hiker</h1>
+              <h1 class="text-6xl">are you?</h1>
+            </div>
+            <p>
+              Determining what level of hiker you are can be an important tool
+              when planning future hikes. This hiking level guide will help you
+              plan hikes according to different hike ratings set by various
+              websites like All Trails and Modern Hiker. What type of hiker are
+              you – novice, moderate, advanced moderate, expert, or expert
+              backpacker?
+            </p>
+            <div
+              class="cursor-pointer w-fit text-[var(--color-gold-1)] relative z-[99] flex gap-4"
+            >
+              <p>read more</p>
+              <img
+                class="animate-arrow-right"
+                src="./assets/images/arrow_right.svg"
+                alt="arrow-right"
+              />
+            </div>
+          </div>
+          <div class="w-full">
+            <img src="./assets/images/01.jpg" alt="01_img" />
+          </div>
+        </div>
+      </section>
+      <section id="02" class="container mx-auto pt-[11rem]">
+        <div class="wrapper px-8 lg:px-24 grid grid-cols-7 items-center">
+          <div class="w-full col-span-3">
+            <img src="./assets/images/02.jpg" alt="02_img" />
+          </div>
+          <div class="pl-8 lg:pl-40 col-span-4 flex flex-col gap-6 relative">
+            <div
+              class="absolute -top-[10rem] -left-[3rem] text-[15rem] text-[#FFFFFF1A] font-bold"
+            >
+              02
+            </div>
+            <div
+              class="font-bold tracking-widest text-[var(--color-gold-1)] flex gap-4 items-center"
+            >
+              <img
+                class="h-[0.2rem] w-[5rem]"
+                src="./assets/images/Rectangle 2.1.png"
+                alt="reactangle_icon"
+              />
+              <p>Hiking Essentials</p>
+            </div>
+            <div class="alice">
+              <h1 class="text-6xl">Picking the right</h1>
+              <h1 class="text-6xl">Hiking Gear!</h1>
+            </div>
+            <p>
+              The nice thing about beginning hiking is that you don’t really
+              need any special glgr, you can probably get away with things you
+              already have. Let’s start with clothing. A typical mistake hiking
+              beginners make is wearing jeans and regular clothes, which will
+              get heavy and chafe wif they get sweaty or wet.
+            </p>
+            <div
+              class="cursor-pointer w-fit text-[var(--color-gold-1)] relative z-[99] flex gap-4"
+            >
+              <p>read more</p>
+              <img
+                class="animate-arrow-right"
+                src="./assets/images/arrow_right.svg"
+                alt="arrow-right"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="03" class="container mx-auto pt-[15rem] min-h-screen">
+        <div class="wrapper px-8 lg:px-24 grid grid-cols-3 items-center">
+          <div class="px-8 lg:px-24 col-span-2 flex flex-col gap-6 relative">
+            <div
+              class="absolute -top-[10rem] -left-[3rem] text-[15rem] text-[#FFFFFF1A] font-bold"
+            >
+              03
+            </div>
+
+            <div
+              class="font-bold tracking-widest text-[var(--color-gold-1)] flex gap-4 items-center"
+            >
+              <img
+                class="h-[0.2rem] w-[5rem]"
+                src="./assets/images/Rectangle 2.1.png"
+                alt="reactangle_icon"
+              />
+              <p>WHERE YOU GO IS THE KEY</p>
+            </div>
+            <div class="alice">
+              <h1 class="text-6xl">Understand Your</h1>
+              <h1 class="text-6xl">Map & Timing</h1>
+            </div>
+            <p>
+              To start, print out the hiking guide and map. If it’s raining,
+              throw them in a Zip-Lock bag. Read over the guide, study the map,
+              and have a good idea of what to expect. I like to know what my
+              next landmark is as I hike. For example, I’ll read the guide and
+              know that say, in a mile, I make a right turn at the junction..
+            </p>
+            <div
+              class="cursor-pointer w-fit text-[var(--color-gold-1)] relative z-[99] flex gap-4"
+            >
+              <p>read more</p>
+              <img
+                class="animate-arrow-right"
+                src="./assets/images/arrow_right.svg"
+                alt="arrow-right"
+              />
+            </div>
+          </div>
+          <div class="w-full">
+            <img src="./assets/images/03.jpg" alt="03_img" />
+          </div>
+        </div>
+      </section>
+      <footer class="grid grid-cols-5 container mx-auto my-24 px-8 xl:px-0">
+        <div class="col-span-3 flex flex-col justify-between">
+          <div>
+            <h2 class="alice text-3xl">MNTN</h2>
+            <div class="pt-6">
+              <p>Get out there & discover your next</p>
+              <p>slope, mountain & destination!</p>
+            </div>
+          </div>
+          <div class="text-[#FFFFFF80]">
+            Copyright 2023 MNTN, Inc. Terms & Privacy
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-[var(--color-gold-1)]">More on The Blog</h3>
+          <div class="flex flex-col gap-6 pt-6">
+            <a href="#about">About MNTN</a>
+            <a href="#contributors">Contributors & Writers</a>
+            <a href="#write-for-us">Write For Us</a>
+            <a href="#contact">Contact Us</a>
+            <a href="#privacy-policy">Privacy Policy</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-[var(--color-gold-1)]">More on MNTN</h3>
+          <div class="flex flex-col gap-6 pt-6">
+            <a href="#the-team">The Team</a>
+            <a href="#jobs">Jobs</a>
+            <a href="#press">Press</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
